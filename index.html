@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><!-- 23 , 60 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>C Lab solutions</title>
+    <style>
+            textarea {
+        position: absolute;
+        left: -100%;
+      }
+    </style>
+</head>
+<body>
+
+<div class = "top-bar">
+    <h1>Data Structure Labouratory !</h1>
+</div>
+    <h3>
+        1A) C Program To Make a Simple Calculator Using switch...case :
+    </h3>
+<pre id="1A-content" class="program">
+
+    // C Program To Make a Simple Calculator Using switch...case
+    #include &lt;stdio.h&gt;
+    int main(){
+        char ch;
+        int a, b, result;
+
+        // Asking for Input
+        printf("Enter an Operator (+, *, *, /): ");
+        scanf("%c", &ch);
+        printf("Enter two operands: \n");
+        scanf("%d %d", &a, &b);
+        
+        switch(ch){
+            case '+':
+                result = a + b;
+                break;
+            case '-':
+                result = a - b;
+                break;
+            case '*':
+                result = a * b;
+                break;
+            case '/':
+                result = a / b;
+                break;
+        }
+        printf("Result = %d", result);
+        return 0;
+        }
+    </pre>
+    <button id="1A"></button><hr>
+        <h3>
+            1B) C program using Recursive function to compute the factorial !!
+        </h3>
+
+<pre id="1B-content" class="program">
+
+    // C program using Recursive function to compute the factorial !!
+    #include &lt;stdio.h&gt;
+
+    int fact(int);
+    int main()
+    {
+        int x,n;
+        printf(" Enter the Number to Find Factorial :");
+        scanf("%d",&n);
+
+        x=fact(n);
+        printf(" Factorial of %d is %d",n,x);
+
+        return 0;
+    }
+    int fact(int n)
+    {
+        if(n==0)
+            return(1);
+        return(n*fact(n-1));
+    }
+ </pre>
+        <button id="1B"></button><hr>
+        <h3>
+            2A) C program to find the addition of two matrices :
+        </h3>
+
+<pre id="2A-content" class="program">
+
+    //C program to find the addition of two matrices :
+    #include &lt;stdio.h&gt;
+    #define ROW 3
+    #define COL 3
+    void addMatrix(int a[][COL], int b[][COL], int c[][COL]) {
+        int i, j;
+        for (i = 0; i < ROW; i++) {
+        for (j = 0; j < COL; j++) {
+        c[i][j] = a[i][j] + b[i][j];
+        }
+        }
+    }
+    int main() {
+        int a[ROW][COL] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int b[ROW][COL] = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
+        int c[ROW][COL];
+        addMatrix(a, b, c);
+        int i, j;
+        printf("Resultant matrix:\n");
+        for (i = 0; i < ROW; i++) {
+        for (j = 0; j < COL; j++) {
+        printf("%d", c[i][j]);
+        }
+        printf("\n");
+        }
+        return 0;
+    }
+ </pre>
+        <button id="2A"></button><hr>
+        <h3>
+            2B) C program to check whether the given string is Palindrome or not:
+        </h3>
+
+<pre id="2B-content" class="program">
+
+    //program to check whether the given string is Palindrome or not
+    #include &lt;stdio.h&gt;
+    #include &lt;string.h&gt;
+
+    int main()
+    {
+    char s[1000];  
+    int i,n,c=0;
+
+    printf("Enter  the string : ");
+    gets(s);
+    n=strlen(s);
+
+    for(i=0;i&lt;n/2;i++)  
+    {
+        if(s[i]==s[n-i-1])
+        c++;
+
+        }
+        if(c==i)
+            printf("string is palindrome");
+    else
+        printf("string is not palindrome");
+    return 0;
+    }
+ </pre>
+        <button id="2B"></button><hr>
+
+        <h3>
+            3A)  C Program to find the roots of the quadratic equation:
+        </h3>
+
+<pre id="3A-content" class="program">
+
+    //C Program to find the roots of the quadratic equation:
+    # include&lt;stdio.h&gt;
+    # include&lt;conio.h&gt;
+    # include&lt;math.h&gt;
+    int main (){
+        float a,b,c,r1,r2,d;
+        printf ("enter the values of a b c: ");
+        scanf (" %f %f %f", &a, &b, &c);
+        d= b*b - 4*a*c;
+        if (d>0){
+            r1 = -b+sqrt (d) / (2*a);
+            r2 = -b-sqrt (d) / (2*a);
+            printf ("The real roots = %f %f", r1, r2);
+        }
+        else if (d==0){
+            r1 = -b/(2*a);
+            r2 = -b/(2*a);
+            printf ("roots are equal =%f %f", r1, r2);
+        }
+        else
+            printf("Roots are imaginary");
+        getch ();
+        return 0;
+    }
+ </pre>
+        <button id="3A"></button><hr>
+
+        <h3>
+            3B)  C program to swap two number using pass by value and references:
+        </h3>
+
+<pre id="3B-content" class="program">
+    
+    // C program to swap two number using pass by value and references
+    # include&lt;stdio.h&gt;
+    // function to swap two numbers using pass by value
+    void swapByValue(int a, int b) {
+        int temp = a;
+        a = b;
+        b = temp;
+    }
+    // function to swap two numbers using pass by reference
+    void swapByReference(int *a, int *b) {
+        int temp = *a;
+        *a = *b;
+        *b = temp;
+    }
+    int main() {
+        int x = 5, y = 10;
+        printf("Before swapping (by value): x = %d, y = %d\n", x, y);
+        swapByValue(x, y);
+        printf("After swapping (by value): x = %d, y = %d\n", x, y);
+        printf("Before swapping (by reference): x = %d, y = %d\n", x, y);
+        swapByReference(&x, &y);
+        printf("After swapping (by reference): x = %d, y = %d\n", x, y);
+        return 0;
+    }
+ </pre>
+        <button id="3B"></button><hr>
+
+        <h3>
+            4A) C Program to find whether a given number is a prime number:
+        </h3>
+
+<pre id="4A-content" class="program">
+    
+    // C Program to find whether a given number is a prime number
+    # include&lt;stdio.h&gt;
+    int main(){
+        
+        int num,i,count=0;
+        printf("Enter a number: ");
+        scanf("%d",&num);
+        for(i=2;i<=num/2;i++){
+            if(num%i==0){
+                count++;
+                break;
+            }
+        }
+        if(count==0 && num!= 1)
+            printf("%d is a prime number",num);
+        else
+            printf("%d is not a prime number",num);
+        return 0;
+    }
+ </pre>
+        <button id="4A"></button><hr>
+        <h3>
+            4B) C program to find the Fibonacci series up to a range:
+        </h3>
+
+<pre id="4B-content" class="program">
+    
+    // C program to find the Fibonacci series up to a range
+    # include&lt;stdio.h&gt;
+    int main() {
+
+        int i, n;
+        int t1 = 0, t2 = 1;
+        int nextTerm = t1 + t2;
+        printf("Enter the number of terms: ");
+        scanf("%d", &n);
+        printf("Fibonacci Series: %d, %d, ", t1, t2);
+        for (i = 3; i <= n; ++i) {
+        printf("%d, ", nextTerm);
+        t1 = t2;
+        t2 = nextTerm;
+        nextTerm = t1 + t2;
+        }
+        return 0;
+    }
+ </pre>
+        <button id="4B"></button><hr>
+        <h3>
+            5A) C program to sort an array of N numbers using quick sort:
+        </h3>
+
+<pre id="5A-content" class="program">
+    
+    //C program to sort an array of N numbers using quick sort
+    # include&lt;stdio.h&gt;
+        void quicksort(int number[25],int first,int last){
+           int i, j, pivot, temp;
+           if(first&lt;last){
+              pivot=first;
+              i=first;
+              j=last;
+              while(i&lt;j){
+                 while(number[i]&lt;=number[pivot]&&i&lt;last)
+                 i++;
+                 while(number[j]&gt;number[pivot])
+                 j--;
+                 if(i&lt;j){
+                    temp=number[i];
+                    number[i]=number[j];
+                    number[j]=temp;
+                 }
+              }
+              temp=number[pivot];
+              number[pivot]=number[j];
+              number[j]=temp;
+              quicksort(number,first,j-1);
+              quicksort(number,j+1,last);
+           }
+        }
+        int main(){
+           int i, count, number[25];
+           printf("How many elements are u going to enter?: ");
+           scanf("%d",&count);
+           printf("Enter %d elements: ", count);
+           for(i=0;i&lt;count;i++)
+           scanf("%d",&number[i]);
+           quicksort(number,0,count-1);
+           printf("Order of Sorted elements: ");
+           for(i=0;i&lt;count;i++)
+           printf(" %d",number[i]);
+           return 0;
+        }
+ </pre>
+        <button id="5A"></button><hr>
+
+        <h3>
+            5B) C program to check whether the given number is an Armstrong number 
+            or not:
+        </h3>
+
+<pre id="5B-content" class="program">
+    
+    //check whether the given number is an Armstrong number 
+    //or not
+    # include&lt;stdio.h&gt;
+    int main() {
+        int num, originalNum, remainder, result = 0;
+        printf("Enter a three-digit integer: ");
+        scanf("%d", &num);
+        originalNum = num;
+    
+        while (originalNum != 0) {
+            remainder = originalNum % 10;
+            
+           result += remainder * remainder * remainder;
+           originalNum /= 10;
+        }
+    
+        if (result == num)
+            printf("%d is an Armstrong number.", num);
+        else
+            printf("%d is not an Armstrong number.", num);
+    
+        return 0;
+    }
+ </pre>
+        <button id="5B"></button><hr>
+        <h3>
+            6A) C program which copies one file to another :
+        </h3>
+
+<pre id="6A-content" class="program">
+    
+    //C program which copies one file to another
+    # include&lt;stdio.h&gt;
+    #include &lt;stdlib.h&gt;// For exit()
+    int main()
+    {
+        FILE *fptr1, *fptr2;
+        char filename[100], c;
+      
+        printf("Enter the filename to open for reading \n");
+        scanf("%s", filename);
+      
+        // Open one file for reading
+        fptr1 = fopen(filename, "r");
+        if (fptr1 == NULL)
+        {
+            printf("Cannot open file %s \n", filename);
+            exit(0);
+        }
+      
+        printf("Enter the filename to open for writing \n");
+        scanf("%s", filename);
+      
+        // Open another file for writing
+        fptr2 = fopen(filename, "w");
+        if (fptr2 == NULL)
+        {
+            printf("Cannot open file %s \n", filename);
+            exit(0);
+        }
+      
+        // Read contents from file
+        c = fgetc(fptr1);
+        while (c != EOF)
+        {
+            fputc(c, fptr2);
+            c = fgetc(fptr1);
+        }
+      
+        printf("\nContents copied to %s", filename);
+      
+        fclose(fptr1);
+        fclose(fptr2);
+        return 0;
+    }
+ </pre>
+        <button id="6A"></button><hr>
+        <h3>
+            6B) C program to check the biggest of three numbers :
+        </h3>
+
+<pre id="6B-content" class="program">
+    
+    //C program to check the biggest of three numbers
+    # include&lt;stdio.h&gt;
+    int main()
+    {
+        int A, B, C;
+        printf("Enter the numbers A, B and C: ");
+        scanf("%d %d %d", &A, &B, &C);
+     
+        if (A >= B && A >= C)
+            printf("%d is the largest number.", A);
+     
+        if (B >= A && B >= C)
+            printf("%d is the largest number.", B);
+     
+        if (C >= A && C >= B)
+            printf("%d is the largest number.", C);
+        return 0;
+    }
+ </pre>
+        <button id="6B"></button><hr>
+        <h3>
+            7A) program to sort an array of N numbers using merge sort :
+        </h3>
+
+<pre id="7A-content" class="program">
+    
+    //sort an array of N numbers using merge sort
+    #include &lt;stdio.h&gt;
+    void mergeSort(int arr[], int l, int r);
+    void merge(int arr[], int l, int m, int r);
+    int main() 
+    {
+        int n;
+        printf("Enter the number of elements in the array: ");
+        scanf("%d", &n);
+        int arr[n];
+        printf("Enter %d elements: ", n);
+        for (int i = 0; i &lt; n; i++) {
+        scanf("%d", &arr[i]);
+        }
+        mergeSort(arr, 0, n-1);
+        printf("Sorted array: ");
+        for (int i = 0; i &lt; n; i++) {
+        printf("%d ", arr[i]);
+        }
+        printf("\n");
+        return 0;
+    }
+    void mergeSort(int arr[], int l, int r) 
+    {
+        if (l &lt; r) {
+        int m = l+(r-l)/2;
+        mergeSort(arr, l, m);
+        mergeSort(arr, m+1, r);
+        merge(arr, l, m, r);
+     }
+    }
+    void merge(int arr[], int l, int m, int r) 
+    {
+        int i, j, k;
+        int n1 = m - l + 1;
+        int n2 = r - m;
+        int L[n1], R[n2];
+        for (i = 0; i &lt; n1; i++) {
+        L[i] = arr[l + i];
+        }
+        for (j = 0; j &lt; n2; j++) {
+        R[j] = arr[m + 1 + j];
+        }
+        i = 0;
+        j = 0;
+        k = l;
+        while (i &lt; n1 && j &lt; n2) {
+        if (L[i] &lt;= R[j]) {
+        arr[k] = L[i];
+        i++;
+        } else {
+        arr[k] = R[j];
+        j++;
+        }
+        k++;
+        }
+        while (i &lt; n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
+        }
+        while (j &lt; n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+        }
+    }
+    
+ </pre>
+        <button id="7A"></button><hr>
+        <h3>
+            7B) C program to find sum of first N natural numbers :
+        </h3>
+
+<pre id="7B-content" class="program">
+    
+    //C program to find sum of first N natural numbers
+    #include&lt;stdio.h&gt;
+    int main() {
+    int n,sum;
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+    sum = n*(n+1)/2;
+    printf("The sum of the first %d natural numbers is: %d\n", n, sum);
+    return 0;
+    }
+ </pre>
+        <button id="7B"></button><hr>
+        <h3>
+            8A) C program to create student details using the structure :
+        </h3>
+
+<pre id="8A-content" class="program">
+    
+    //C program to create student details using the structure
+    #include&lt;stdio.h&gt;
+    #include &lt;string.h&gt;
+    
+    struct student{
+        int id;
+        char name[50];
+        float marks;
+    };
+    int main()
+    {
+        struct student s;
+        printf("Enter student id: ");
+        scanf("%d", &s.id);
+        printf("Enter student name: ");
+        scanf("%s", s.name);
+        printf("Enter student marks: ");
+        scanf("%f",&s.marks);
+        printf("Student details: \n");
+        printf("Id: %d\n", s.id);
+        printf("Name: %s\n", s.name);
+        printf("Marks: %.2f\n", s.marks);
+        return 0;
+    }
+ </pre>
+        <button id="8A"></button><hr>
+        <h3>
+            8B) C program for implementing a stack using arrays :
+        </h3>
+
+<pre id="8B-content" class="program">
+    
+    //C program for implementing a stack using arrays
+    #include &lt;stdio.h&gt;
+    #define MAX_SiZE 100
+    int stack[MAX_SiZE];
+    int top = -1;
+    void push(int value) 
+    {
+        if (top == MAX_SiZE - 1) 
+        {
+            printf("Stack overflow\n");
+            return;
+        }
+        top++;
+        stack[top] = value;
+        printf("%d pushed to stack\n", value);
+    }
+    int pop() 
+    {
+        if (top == -1) 
+        {
+            printf("Stack underflow\n");
+            return -1;
+        }
+        int value = stack[top];
+        top--;
+        printf("%d popped from stack\n", value);
+        return value;
+    }
+    int peek() 
+    {
+        if (top == -1) 
+        {
+            printf("Stack is empty\n");
+            return -1;
+        }
+        return stack[top];
+    }
+    int isEmpty() 
+    {
+        if (top == -1) 
+        {
+            return 1;
+        }
+        return 0;
+    }
+    void display() {
+        if (top == -1) 
+        {
+            printf("Stack is empty\n");
+            return;
+        }
+        printf("Stack elements: ");
+        for (int i = top; i &gt;= 0; i--) 
+        {
+            printf("%d ", stack[i]);
+        }
+        printf("\n");
+    }
+    int main() 
+    {
+        push(1);
+        push(2);
+        push(3);
+        display();
+        pop();
+        display();
+        printf("Top element: %d\n", peek());
+        printf("Stack empty: %d\n", isEmpty());
+        return 0;
+    }
+ </pre>
+        <button id="8B"></button><hr>
+        <h3>
+            9A) C Program to implement payroll application :
+        </h3>
+
+<pre id="9A-content" class="program">
+    
+    //C Program to implement payroll application
+    #include&lt;stdio.h&gt;
+
+    int main()
+    {
+        float bs, hra, da, gs, pf, lic, deduction;
+    
+        printf("Enter basic salary\n");
+        scanf("%f", &bs);
+    
+        hra = bs * (15/100.00);
+        da  = bs * (20/100.00);
+        pf  = bs * (10/100.00);
+        lic = bs * (8/100.00);
+    
+        deduction = pf+lic;
+        gs  = bs + hra + da;
+    
+        printf("Net Salary = %f\n", gs-deduction);
+    
+        return 0;
+    }
+ </pre>
+        <button id="9A"></button><hr>
+        <h3>
+            9B) program to sort an array of N numbers using insertion sort :
+        </h3>
+
+<pre id="9B-content" class="program">
+    
+    // program to sort an array of N numbers using insertion sort 
+    #include &lt;stdio.h&gt;
+    void insertionSort(int arr[], int n) 
+    {
+        int i, key, j;
+        for (i = 1; i &lt; n; i++) {
+        key = arr[i];
+        j = i - 1;
+        while (j &gt;= 0 && arr[j] &gt; key) {
+        arr[j + 1] = arr[j];
+        j = j - 1;
+        }
+        arr[j + 1] = key;
+        }
+    }
+    void printarray(int arr[], int n) 
+    {
+        int i;
+        for (i = 0; i &lt; n; i++)
+        printf("%d ", arr[i]);
+        printf("\n");
+    }
+    int main() 
+    {
+        int arr[] = {12, 11, 13, 5, 6};
+        int n = sizeof(arr) / sizeof(arr[0]);
+        insertionSort(arr, n);
+        printf("Sorted array: \n");
+        printarray(arr, n);
+        return 0;
+    }
+    
+ </pre>
+        <button id="9B"></button><hr>
+        <h3>
+            10A) C program to create a Pascal triangle :
+        </h3>
+
+<pre id="10A-content" class="program">
+    
+    // C program to create a Pascal triangle
+    #include &lt;stdio.h&gt;
+    int main() 
+    {
+        int rows;
+        printf("Enter the number of rows: ");
+        scanf("%d", &rows);
+        for (int i = 0; i &lt; rows; i++) 
+        {
+            for (int j = 0; j &lt;= i; j++) 
+            {
+                if (j == 0 || j == i) {
+                printf("1 ");
+                } else {
+                printf("%d ", (i-j+1)*j/j);
+                }
+            }
+            printf("\n");
+        }
+        return 0;
+    }
+ </pre>
+        <button id="10A"></button><hr>
+        <h3>
+            10B) C program for implementing a Queue using arrays :
+        </h3>
+
+<pre id="10B-content" class="program">
+    
+    //C program for implementing a Queue using arrays
+    #include&lt;stdio.h&gt;
+    #define MAX_SIZE 100
+    int queue[MAX_SIZE];
+    int front = -1, rear = -1;
+    void enqueue(int item)
+    {
+        if (rear == MAX_SIZE - 1)
+        {
+            printf("queue is full.\n");
+            return;
+        }
+        if (front == -1)
+        {
+            front = 0;
+        }
+        rear++;
+        queue[rear] = item;
+    }
+    int dequeue()
+    {
+        if (front == -1)
+        {
+            printf("queue is empty.\n");
+            return -1;
+        }
+        int item = queue[front];
+        front++;
+        if (front &gt; rear)
+        {
+            front = rear = -1;
+        }
+        return item;
+    }
+    int main()
+    {
+        enqueue(1);
+        enqueue(2);
+        enqueue(3);
+        printf("%d\n", dequeue());
+        printf("%d\n", dequeue());
+        printf("%d\n", dequeue());
+        return 0;
+    }
+ </pre>
+        <button id="10B"></button><hr>
+<script>
+    function fun1a() {
+    const copyText = document.getElementById("1A-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('1A').addEventListener('click', fun1a);
+</script>
+<script>
+    function fun1b() {
+    const copyText = document.getElementById("1B-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('1B').addEventListener('click', fun1b);
+</script>
+<script>
+    function fun2a() {
+    const copyText = document.getElementById("2A-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('2A').addEventListener('click', fun2a);
+</script>
+<script>
+    function fun2b() {
+    const copyText = document.getElementById("2B-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('2B').addEventListener('click', fun2b);
+</script>
+<script>
+    function fun3a() {
+    const copyText = document.getElementById("3A-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('3A').addEventListener('click', fun3a);
+</script>
+<script>
+    function fun3b() {
+    const copyText = document.getElementById("3B-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('3B').addEventListener('click', fun3b);
+</script>
+<script>
+    function fun4a() {
+    const copyText = document.getElementById("4A-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('4A').addEventListener('click', fun4a);
+</script>
+<script>
+    function fun4b() {
+    const copyText = document.getElementById("4B-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('4B').addEventListener('click', fun4b);
+</script>
+<script>
+    function fun5a() {
+    const copyText = document.getElementById("5A-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('5A').addEventListener('click', fun5a);
+</script>
+<script>
+    function fun5b() {
+    const copyText = document.getElementById("5B-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('5B').addEventListener('click', fun5b);
+</script>
+<script>
+    function fun6a() {
+    const copyText = document.getElementById("6A-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('6A').addEventListener('click', fun6a);
+</script>
+<script>
+    function fun6b() {
+    const copyText = document.getElementById("6B-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('6B').addEventListener('click', fun6b);
+</script>
+<script>
+    function fun7a() {
+    const copyText = document.getElementById("7A-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('7A').addEventListener('click', fun7a);
+</script>
+<script>
+    function fun7b() {
+    const copyText = document.getElementById("7B-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('7B').addEventListener('click', fun7b);
+</script>
+<script>
+    function fun8a() {
+    const copyText = document.getElementById("8A-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('8A').addEventListener('click', fun8a);
+</script>
+<script>
+    function fun8b() {
+    const copyText = document.getElementById("8B-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('8B').addEventListener('click', fun8b);
+</script>
+<script>
+    function fun9a() {
+    const copyText = document.getElementById("9A-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('9A').addEventListener('click', fun9a);
+</script>
+<script>
+    function fun9b() {
+    const copyText = document.getElementById("9B-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('9B').addEventListener('click', fun9b);
+</script>
+<script>
+    function fun10a() {
+    const copyText = document.getElementById("10A-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('10A').addEventListener('click', fun10a);
+</script>
+<script>
+    function fun10b() {
+    const copyText = document.getElementById("10B-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('10B').addEventListener('click', fun10b);
+</script>
+<script>
+    function fun11a() {
+    const copyText = document.getElementById("11A-content").textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    }
+    document.getElementById('11A').addEventListener('click', fun11a);
+</script>
+<i>(c) @kiot 2023 for bug report <a href="https://wa.me/918248412269">click here</a></i>
+</body>
+</html>
